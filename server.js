@@ -12,12 +12,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
+
+
 app.use (
     express.static(path.join(__dirname, './public'), { extensions: ['.html'] } )
 );
 
-app.get('/api/note', (req,res) => {
-    db.readNote().then((note) => res.json(note))
+app.get('/api/notes', (req,res) => {
+    db.readNotes().then((notes) => res.json([{title: 'Not Noice' , text: 'Big OOF'}]))
     });
 
 app.listen(PORT, () => console.log(`App Listening on PORT ${PORT}`));

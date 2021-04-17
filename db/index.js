@@ -6,4 +6,4 @@ const readNotes = () =>
         .readFile(path.join(__dirname, './db.json'), 'utf-8')
         .then((data) => JSON.parse(data));
 
-modeule.exports = {readNotes};
+module.exports = { readNotes };
