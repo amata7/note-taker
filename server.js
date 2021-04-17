@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
-const db = require('./db');
-
+const createNoteApiRoutes = require('./routes/noteApiRoutes');
 // Sets up the Express App
 
 const app = express();
@@ -17,9 +16,7 @@ app.use(express.json());
 app.use (
     express.static(path.join(__dirname, './public'), { extensions: ['.html'] } )
 );
+createNoteApiRoutes(app);
 
-app.get('/api/notes', (req,res) => {
-    db.readNotes().then((notes) => res.json([{title: 'Not Noice' , text: 'Big OOF'}]))
-    });
-
+// Listener
 app.listen(PORT, () => console.log(`App Listening on PORT ${PORT}`));
