@@ -1,5 +1,6 @@
 const fs = require('fs').promises;
 const path = require('path');
+const { nanoid } = require("nanoid");
 
 const readNotes = () => 
     fs
@@ -14,7 +15,7 @@ const createNote = (title, text) => {
 
   return readNotes().then((notes) => {
     const note = {
-      // id: nanoid(),
+      id: nanoid(),
       title,
       text,
     };
