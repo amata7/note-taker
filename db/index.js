@@ -6,4 +6,27 @@ const readNotes = () =>
         .readFile(path.join(__dirname, './db.json'), 'utf-8')
         .then((data) => JSON.parse(data));
 
-module.exports = { readNotes };
+
+const createNote = (title, text) => {
+  if (!title || !text) {
+    return Promise.reject(new Error("Must have a title and text"));
+  }
+
+  return readNotes().then((notes) => {
+    const note = {
+      // id: nanoid(),
+      title,
+      text,
+    };
+    notes.push(note);
+    return fs
+      .writeFile(
+        path.join(__dirname, "./db.json"),
+        JSON.stringify(notes),
+        "utf-8"
+      )
+      .then(() => note);
+  });
+};
+
+module.exports = { readNotes, createNote };
