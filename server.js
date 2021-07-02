@@ -1,7 +1,7 @@
-const express = require('express');
-const path = require('path');
-const createNoteApiRoutes = require('./routes/noteApiRoutes');
-const createNoteHtmlRoutes = require('./routes/noteHtmlRoutes');
+const express = require("express");
+const path = require("path");
+const createNoteApiRoutes = require("./routes/noteApiRoutes");
+const createNoteHtmlRoutes = require("./routes/noteHtmlRoutes");
 
 // Sets up the Express App
 const app = express();
@@ -11,11 +11,8 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
-
-
-app.use (
-    express.static(path.join(__dirname, './public'), { extensions: ['.html'] } )
+app.use(
+  express.static(path.join(__dirname, "./public"), { extensions: [".html"] })
 );
 createNoteApiRoutes(app);
 createNoteHtmlRoutes(app);

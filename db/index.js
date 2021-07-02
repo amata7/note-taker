@@ -1,12 +1,11 @@
-const fs = require('fs').promises;
-const path = require('path');
+const fs = require("fs").promises;
+const path = require("path");
 const { nanoid } = require("nanoid");
 
-const readNotes = () => 
-    fs
-        .readFile(path.join(__dirname, './db.json'), 'utf-8')
-        .then((data) => JSON.parse(data));
-
+const readNotes = () =>
+  fs
+    .readFile(path.join(__dirname, "./db.json"), "utf-8")
+    .then((data) => JSON.parse(data));
 
 const createNote = (title, text) => {
   if (!title || !text) {
