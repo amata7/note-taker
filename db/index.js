@@ -29,7 +29,8 @@ const createNote = (title, text) => {
   });
 };
 
-const deleteNote = (id) => {
+const deleteNote = (url) => {
+  const id = url.split("/").pop();
   console.log(id);
   // return readNotes().then((notes) => {
   //   console.log(notes);
