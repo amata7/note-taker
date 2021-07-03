@@ -29,4 +29,6 @@ const createNote = (title, text) => {
   });
 };
 
-module.exports = { readNotes, createNote };
+const deleteNote = (id) => {};
+
+module.exports = { readNotes, createNote, deleteNote };
