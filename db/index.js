@@ -40,9 +40,13 @@ const deleteNote = (url) => {
           })
           .indexOf(id);
         notes.splice(index, 1);
-        console.log(notes);
       }
     }
+    return fs.writeFile(
+      path.join(__dirname, "./db.json"),
+      JSON.stringify(notes),
+      "utf-8"
+    );
   });
 };
 
