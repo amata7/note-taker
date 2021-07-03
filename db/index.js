@@ -29,6 +29,10 @@ const createNote = (title, text) => {
   });
 };
 
-const deleteNote = (id) => {};
+const deleteNote = (id) => {
+  return readNotes().then((notes) => {
+    console.log(id.target);
+  });
+};
 
 module.exports = { readNotes, createNote, deleteNote };

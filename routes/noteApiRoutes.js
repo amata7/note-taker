@@ -14,4 +14,14 @@ module.exports = (app) => {
         res.sendStatus(400);
       });
   });
+
+  app.delete("/api/notes/:id", (req, res) => {
+    const { id } = req.body;
+    db.deleteNote(id)
+      .then(() => res.redirect("/"))
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(400);
+      });
+  });
 };
