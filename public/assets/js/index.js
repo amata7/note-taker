@@ -116,10 +116,6 @@ const handleRenderSaveBtn = () => {
   }
 };
 
-function getId(el) {
-  console.log(el.data - note);
-}
-
 // Render the list of note titles
 const renderNoteList = async (notes) => {
   const jsonNotes = await notes.json();
@@ -133,9 +129,6 @@ const renderNoteList = async (notes) => {
   const createLi = (text, delBtn = true) => {
     const liEl = document.createElement("li");
     liEl.classList.add("list-group-item");
-    liEl.onclick = function () {
-      console.log(getId(this));
-    };
 
     const spanEl = document.createElement("span");
     spanEl.innerText = text;

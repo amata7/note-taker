@@ -31,13 +31,18 @@ const createNote = (title, text) => {
 
 const deleteNote = (url) => {
   const id = url.split("/").pop();
-  console.log(id);
-  // return readNotes().then((notes) => {
-  //   console.log(notes);
-  //   for (let i = 0; i < notes.length; i++) {
-  //     console.log(notes[i].id);
-  //   }
-  // });
+  // console.log(id);
+  // console.log("hmm");
+  readNotes().then((notes) => {
+    for (let i = 0; i < notes.length; i++) {
+      // console.log(notes[i].id);
+      if (id === notes[i].id) {
+        console.log(id, notes[i].id);
+        notes.splice(notes.length, 1);
+        console.log(notes);
+      }
+    }
+  });
 };
 
 module.exports = { readNotes, createNote, deleteNote };
